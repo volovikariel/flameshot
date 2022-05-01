@@ -6,7 +6,7 @@
 #include <QPoint>
 #include <QScreen>
 
-// ButtonHandler is a habdler for every active button. It makes easier to
+// ButtonHandler is a handle for every active button. It makes easier to
 // manipulate the buttons as a unit.
 
 ButtonHandler::ButtonHandler(const QVector<CaptureToolButton*>& v,

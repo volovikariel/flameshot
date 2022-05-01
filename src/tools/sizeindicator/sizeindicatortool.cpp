@@ -6,7 +6,8 @@
 
 SizeIndicatorTool::SizeIndicatorTool(QObject* parent)
   : AbstractActionTool(parent)
-{}
+{
+}
 
 bool SizeIndicatorTool::closeOnButtonPressed() const
 {

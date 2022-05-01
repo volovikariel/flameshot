@@ -301,6 +301,8 @@ void CaptureWidget::initButtons()
         b->setAttribute(Qt::WA_NoMousePropagation);
         makeChild(b);
 
+        auto origin = Flameshot::instance()->origin();
+        auto task = this->m_context.request.tasks();
         switch (t) {
             case CaptureTool::TYPE_UNDO:
             case CaptureTool::TYPE_REDO:
@@ -312,11 +314,27 @@ void CaptureWidget::initButtons()
                 QString shortcut =
                   ConfigHandler().shortcut(QVariant::fromValue(t).toString());
                 if (!shortcut.isNull()) {
-                    auto shortcuts = newShortcut(shortcut, this, nullptr);
-                    for (auto* shortcut : shortcuts) {
-                        connect(shortcut, &QShortcut::activated, this, [=]() {
-                            setState(b);
-                        });
+
+                    // If a user has a final action mapped to enter, and we
+                    // launched through the CLI. Do not map the key as it will
+                    // override accept.
+                    if (task == CaptureRequest::ExportTask::NO_TASK &&
+                        origin == Flameshot::Origin::CLI &&
+                        shortcut == "Return" &&
+                        ((t == CaptureTool::TYPE_SAVE) ||
+                         (t == CaptureTool::TYPE_COPY) ||
+                         (t == CaptureTool::TYPE_IMAGEUPLOADER) ||
+                         (t == CaptureTool::TYPE_OPEN_APP) ||
+                         (t == CaptureTool::TYPE_PIN))) {
+                    } else {
+                        auto shortcuts = newShortcut(shortcut, this, nullptr);
+
+                        for (auto* shortcut : shortcuts) {
+                            connect(shortcut,
+                                    &QShortcut::activated,
+                                    this,
+                                    [=]() { setState(b); });
+                        }
                     }
                 }
                 break;

@@ -24,7 +24,8 @@ CaptureRequest::CaptureRequest(CaptureRequest::CaptureMode mode,
   , m_delay(delay)
   , m_tasks(tasks)
   , m_data(std::move(data))
-{}
+{
+}
 
 CaptureRequest::CaptureMode CaptureRequest::captureMode() const
 {
