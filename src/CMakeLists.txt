@@ -9,10 +9,12 @@ find_package(
         Svg
         DBus
         LinguistTools)
+find_package(OpenCV REQUIRED)
 
 if (USE_WAYLAND_CLIPBOARD)
     find_package(KF5GuiAddons)
 endif()
+
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -192,6 +194,7 @@ target_include_directories(
          $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/>
          )
 
+target_include_directories(flameshot PRIVATE ${OpenCV_INCLUDE_DIRS})
 
 if (USE_EXTERNAL_SINGLEAPPLICATION)
     add_compile_definitions(USE_EXTERNAL_SINGLEAPPLICATION=1)
@@ -212,6 +215,7 @@ target_link_libraries(
         Qt5::Widgets
         ${QTSINGLEAPPLICATION_LIBRARY}
         QtColorWidgets
+        ${OpenCV_LIBS}
 
 )
 

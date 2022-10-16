@@ -18,6 +18,7 @@
 #include "pin/pintool.h"
 #include "pixelate/pixelatetool.h"
 #include "rectangle/rectangletool.h"
+#include "ruler/rulertool.h"
 #include "redo/redotool.h"
 #include "save/savetool.h"
 #include "selection/selectiontool.h"
@@ -42,6 +43,7 @@ CaptureTool* ToolFactory::CreateTool(CaptureTool::Type t, QObject* parent)
         if_TYPE_return_TOOL(TYPE_ARROW, ArrowTool);
         if_TYPE_return_TOOL(TYPE_SELECTION, SelectionTool);
         if_TYPE_return_TOOL(TYPE_RECTANGLE, RectangleTool);
+        if_TYPE_return_TOOL(TYPE_RULER, RulerTool);
         if_TYPE_return_TOOL(TYPE_CIRCLE, CircleTool);
         if_TYPE_return_TOOL(TYPE_MARKER, MarkerTool);
         if_TYPE_return_TOOL(TYPE_MOVESELECTION, MoveTool);

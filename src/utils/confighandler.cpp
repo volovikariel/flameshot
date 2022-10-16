@@ -134,6 +134,7 @@ static QMap<QString, QSharedPointer<KeySequence>> recognizedShortcuts = {
     SHORTCUT("TYPE_ARROW"               ,   "A"                     ),
     SHORTCUT("TYPE_SELECTION"           ,   "S"                     ),
     SHORTCUT("TYPE_RECTANGLE"           ,   "R"                     ),
+    SHORTCUT("TYPE_RULER"               ,   "H"                     ),
     SHORTCUT("TYPE_CIRCLE"              ,   "C"                     ),
     SHORTCUT("TYPE_MARKER"              ,   "M"                     ),
     SHORTCUT("TYPE_MOVESELECTION"       ,   "Ctrl+M"                ),
