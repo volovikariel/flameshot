@@ -5,7 +5,7 @@
         <img src="data/img/app/org.flameshot.Flameshot.svg" alt="Flameshot" />
       </a>
       <br />
-      Flameshot
+      Flameshot Trigger CI
     </h1>
     <h4>Powerful yet simple to use screenshot software.</h4>
   </p>
