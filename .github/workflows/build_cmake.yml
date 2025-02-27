@@ -112,6 +112,7 @@ jobs:
           version: 5.15.2
           target:  desktop
           dir: '${{ github.workspace }}/build/'
+          extra: '--external 7z'
 
       - name: Configure
         working-directory: build
